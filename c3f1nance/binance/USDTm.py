@@ -16,7 +16,7 @@ class BinanceUSDTmExchange(iCBE):
     def __signature(self, params: dict):
         return hmac.new(self.secret.encode('utf-8'), urlencode(params).replace('%40', '@').encode('utf-8'), hashlib.sha256).hexdigest()
 
-    def __header(self):
+    def __header(self) -> dict:
         return {'X-MBX-APIKEY': self.api}
 
     def aggTrades(

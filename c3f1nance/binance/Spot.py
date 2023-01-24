@@ -42,7 +42,7 @@ class BinanceSpotExchange(iCBE):
     @permission
     def account(
             self,
-            timestamp: int,
+            timestamp: float,
             recvWindow: Optional[int] = None
     ) -> Response:
         params: dict = {'timestamp': timestamp} if recvWindow is None else {'timestamp': timestamp, 'recvWindow': recvWindow}
