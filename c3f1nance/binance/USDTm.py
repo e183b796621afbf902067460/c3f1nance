@@ -78,3 +78,28 @@ class BinanceUSDTmExchange(iCBE):
         )
         assert isinstance(r, Response)
         return r
+
+    @permission
+    def openOrders(
+            self,
+            timestamp: int,
+            symbol: Optional[str] = None,
+            recvWindow: Optional[int] = None
+    ) -> Response:
+        params: dict = {
+            'timestamp': timestamp
+        }
+        if symbol:
+            params.update({'symbol': symbol})
+        if recvWindow:
+            params.update({'recvWindow': recvWindow})
+        params.update({'signature': self.__signature(params)})
+
+        r = self._r(
+            method='get',
+            url='/fapi/v1/openOrders',
+            params=params,
+            headers=self.__header()
+        )
+        assert isinstance(r, Response)
+        return r
