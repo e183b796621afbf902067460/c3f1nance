@@ -73,7 +73,7 @@ class BinanceSpotExchange(iCBE):
 
 ```
 
-The code above is implementation of the Binance [SPOT](https://binance-docs.github.io/apidocs/spot/en/#change-log). 
+The code above is implementation of the [Binance SPOT](https://binance-docs.github.io/apidocs/spot/en/#change-log). 
 
 Example of exchange building:
 ```python
